@@ -38,7 +38,7 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
-(ensure-package-installed 'hamburg-theme 'org 'php-mode)
+(ensure-package-installed 'hamburg-theme 'org 'php-mode 'magit)
 
 ;; activate installed packages
 (package-initialize)
