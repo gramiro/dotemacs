@@ -21,7 +21,6 @@
 
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not.
-
 Return a list of installed packages or nil for every skipped package."
   (mapcar
    (lambda (package)
@@ -38,7 +37,7 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
-(ensure-package-installed 'hamburg-theme 'org 'php-mode 'magit)
+(ensure-package-installed 'hamburg-theme 'org 'php-mode 'magit 'csharp-mode)
 
 ;; activate installed packages
 (package-initialize)
@@ -88,4 +87,7 @@ Return a list of installed packages or nil for every skipped package."
   (shell-command (format "etags *.%s" (or extension "el")))
   (let ((tags-revert-without-query t))  ; don't query, revert silently          
     (visit-tags-table default-directory nil)))
-    
+
+(setq mac-option-modifier nil
+      mac-command-modifier 'meta
+      x-select-enable-clipboard t)
